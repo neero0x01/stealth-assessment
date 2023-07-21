@@ -11,6 +11,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfitAndRevenueData } from '../store/reducers/profitAndRevenue.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(
   CategoryScale,
@@ -21,8 +22,8 @@ ChartJS.register(
   Legend
 );
 export const ProfitAndRevenue = (props: any) => {
-  const dispatch = useDispatch();
-  let { data } = useSelector((state: any) => state.profitAndRevenue);
+  const dispatch = useAppDispatch();
+  let { data } = useAppSelector((state) => state.profitAndRevenue);
   data = data.slice().reverse();
   const months = [
     'January',

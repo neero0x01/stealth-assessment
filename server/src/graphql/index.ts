@@ -1,5 +1,3 @@
-import {Schema} from "mongoose";
-
 const { gql } = require("apollo-server");
 const user = require("../models/user.model");
 const product = require("../models/product.model");

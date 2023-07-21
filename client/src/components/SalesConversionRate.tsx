@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SalesConversionRate = (props: any) => {
+export const SalesConversionRate = () => {
   return (
     <div
       style={{

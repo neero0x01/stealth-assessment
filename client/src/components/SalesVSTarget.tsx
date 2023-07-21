@@ -9,8 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
 import { getSalesVSTarget } from '../store/reducers/salesVSTarget.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(
   CategoryScale,
@@ -20,9 +20,9 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-export const SalesVSTarget = (props: any) => {
-  const dispatch = useDispatch();
-  const { data } = useSelector((state: any) => state.salesVSTarget);
+export const SalesVSTarget = () => {
+  const dispatch = useAppDispatch();
+  const { data } = useAppSelector((state) => state.salesVSTarget);
   const options = {
     responsive: true,
     plugins: {

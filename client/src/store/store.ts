@@ -1,5 +1,5 @@
 
-import { Action, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { Action, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducers';
@@ -9,9 +9,11 @@ import thunk, { ThunkAction } from 'redux-thunk';
 const sagaMiddleware = createSagaMiddleware({
 });
 
+const middlewares = [sagaMiddleware, thunk];
+
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [...getDefaultMiddleware({ thunk: false, serializableCheck: false }), sagaMiddleware, thunk],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: { isSerializable: () => true }, thunk: false }).concat(middlewares),
 });
 
 sagaMiddleware.run(rootSaga);

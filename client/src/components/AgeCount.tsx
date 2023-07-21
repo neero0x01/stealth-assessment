@@ -9,8 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
 import { getAgeCount } from '../store/reducers/ageCount.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(
   RadialLinearScale,
@@ -21,8 +21,8 @@ ChartJS.register(
   Legend
 );
 export const AgeCount = (props: any) => {
-  const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state: any) => state.ageCount);
+  const dispatch = useAppDispatch();
+  const { data, loading, error } = useAppSelector((state) => state.ageCount);
 
   useEffect(() => {
     dispatch<any>(getAgeCount());

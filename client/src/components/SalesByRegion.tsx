@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { ResponsiveChoropleth } from '@nivo/geo';
 import { countries } from '../fake-db/index';
-import { useDispatch, useSelector } from 'react-redux';
 import { getSalesByRegion } from '../store/reducers/salesByRegion.reducer';
-export const SalesByRegion = (props: any) => {
-  const { data } = useSelector((state: any) => state.salesByRegion);
-  const dispatch = useDispatch();
+import {useAppDispatch, useAppSelector} from "../store/hooks";
+
+
+export const SalesByRegion = () => {
+  const { data } = useAppSelector((state: any) => state.salesByRegion);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch<any>(getSalesByRegion());
   }, []);

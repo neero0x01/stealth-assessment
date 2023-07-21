@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
 import { getGenderChart } from '../store/reducers/genderChart.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const GenderChart = (props: any) => {
-  const dispatch = useDispatch();
-  const { data } = useSelector((state: any) => state.genderChart);
+  const dispatch = useAppDispatch();
+  const { data } = useAppSelector((state: any) => state.genderChart);
   const doughnutData = {
     labels: Object.keys(data),
     datasets: [

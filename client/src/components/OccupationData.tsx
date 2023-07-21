@@ -9,8 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
 import { getOccupation } from '../store/reducers/occupation.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(
   CategoryScale,
@@ -21,8 +21,8 @@ ChartJS.register(
   Legend
 );
 export const OccupationData = (props: any) => {
-  const dispatch = useDispatch();
-  const { data } = useSelector((state: any) => state.occupationData);
+  const dispatch = useAppDispatch();
+  const { data } = useAppSelector((state) => state.occupationData);
   const options = {
     responsive: true,
     plugins: {

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
 import { getSalesByCategory } from '../store/reducers/salesByCategory.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-export const SalesByCategory = (props: any) => {
-  const { data } = useSelector((state: any) => state.salesByCategory);
-  const dispatch = useDispatch();
+export const SalesByCategory = () => {
+  const { data } = useAppSelector((state) => state.salesByCategory);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch<any>(getSalesByCategory());
   }, []);

@@ -9,8 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
 import { getTopProductSell } from '../store/reducers/topProducts.reducer';
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 
 ChartJS.register(
   CategoryScale,
@@ -20,9 +20,9 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-export const TopProductSell = (props: any) => {
-  const dispatch = useDispatch();
-  const { data } = useSelector((state: any) => state.topProductsSell);
+export const TopProductSell = () => {
+  const dispatch = useAppDispatch();
+  const { data } = useAppSelector((state) => state.topProductsSell);
   const options = {
     indexAxis: 'y' as const,
     elements: {

@@ -12,7 +12,7 @@ import { TopProductSell } from '../components/TopProductSell';
 import { ProfitAndRevenue } from '../components/ProfitAndRevenue';
 import { SalesConversionRate } from '../components/SalesConversionRate';
 
-export const Home = (props: any) => {
+export const Home = () => {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
