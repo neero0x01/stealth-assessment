@@ -2,15 +2,15 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { SalesByRegion } from '../components/SalesByRegion';
-import { SalesByCategory } from '../components/SalesByCategory';
-import { AgeCount } from '../components/AgeCount';
-import { OccupationData } from '../components/OccupationData';
-import { GenderChart } from '../components/GenderChart';
-import { SalesVSTarget } from '../components/SalesVSTarget';
-import { TopProductSell } from '../components/TopProductSell';
-import { ProfitAndRevenue } from '../components/ProfitAndRevenue';
-import { SalesConversionRate } from '../components/SalesConversionRate';
+import { SalesByRegion } from '../sales/sales-by-region/SalesByRegion';
+import { SalesByCategory } from '../sales/sales-by-category/SalesByCategory';
+import { AgeCount } from '../sales/customer-demographics/AgeCount';
+import { OccupationData } from '../sales/customer-demographics/OccupationData';
+import { GenderChart } from '../sales/customer-demographics/GenderChart';
+import { SalesVSTarget } from '../sales/sales-vs-target/SalesVSTarget';
+import { TopProductSell } from '../sales/top-selling-products/TopProductSell';
+import { ProfitAndRevenue } from '../sales/profit-and-revenue/ProfitAndRevenue';
+import { SalesConversionRate } from '../sales/sales-conversion-rate/SalesConversionRate';
 
 export const Home = () => {
   return (
