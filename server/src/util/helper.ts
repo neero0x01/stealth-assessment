@@ -67,7 +67,7 @@ exports.generateFakeUsers = (numberofusers: number): IUser[] => {
       userAge: faker.number.int({ min: 12, max: 100 }),
       country: faker.location.county(),
       countryCode: faker.location.countryCode(),
-      gender: faker.person.gender(),
+      gender: faker.person.sex(),
       occupation: faker.person.jobArea(),
     });
   }
