@@ -1,27 +1,47 @@
-import express from "express";
-import dbConnection from "./dbConnector";
-const bodyParser = require("body-parser");
-const cors = require("cors");
-import apiRoutes from "./routes";
-const {graphqlHTTP} = require('express-graphql')
-const app = express();
-const port = 5000;
-
-app.use(cors());
-require("dotenv").config();
-
-dbConnection();
-app.use(express.json());
-
-app.use("/", apiRoutes);
+import 'dotenv/config.js';
+import { ApolloServer } from '@apollo/server';
+import { expressMiddleware } from '@apollo/server/express4';
+import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
+import express from 'express';
+import http from 'http';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 import schema from './graphql/schema'
-app.use('/graphql',graphqlHTTP((req:any,res:any)=>({
-    schema,
-    context:{req},
-    graphiql:true,
-})))
+import dbConnection from "./dbConnector";
+import apiRoutes from "./routes";
 
-app.use(bodyParser.json({ limit: "50mb" })); // Increase the limit to allow larger payloads
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+interface MyContext {
+    token?: string;
+}
 
-app.listen(port, () => console.log(`Running on port ${port}`));
+async function bootstrapApolloServer() {
+    const port = process.env.PORT || 5000;
+    const app = express();
+    dbConnection();
+
+    const httpServer = http.createServer(app);
+
+    const server = new ApolloServer<MyContext>({
+        schema,
+        plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    });
+
+    await server.start();
+
+    app.use("/", apiRoutes);
+
+    app.use(
+        '/graphql',
+        cors<cors.CorsRequest>(),
+        bodyParser.json({ limit: "50mb" }),
+
+        expressMiddleware(server, {
+            context: async ({ req }) => ({ token: req.headers.token }),
+        }),
+    );
+
+    await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
+    console.log(`🚀 Server ready at http://localhost:5000/`);
+}
+
+bootstrapApolloServer();
