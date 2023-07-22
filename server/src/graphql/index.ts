@@ -153,7 +153,7 @@ const resolvers = {
 
     getGenderData: async (_: any) => {
       const data = await user.find()
-      return { male: data.filter((e: any) => e.gender === 'Male').length, female: data.filter((e: any) => e.gender === 'Female').length, other: data.filter((e: any) => e.gender === 'Other').length }
+      return { male: data.filter((e: any) => e.gender === 'male').length, female: data.filter((e: any) => e.gender === 'female').length, other: data.filter((e: any) => e.gender === 'other').length }
     },
 
     getSalesVSTargetData: async (_: any) => {
