@@ -7,6 +7,7 @@ import genderChartReducer from './genderChart.reducer';
 import salesVSTargetReducer from './salesVSTarget.reducer';
 import topProductsReducer from './topProducts.reducer';
 import profitAndRevenueReducer from './profitAndRevenue.reducer';
+import salesTrendOverTimeReducer from "./salesTrendOverTime.reducer";
 
 const rootReducer = combineReducers({
   salesByRegion: salesByRegionReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   genderChart: genderChartReducer,
   salesVSTarget: salesVSTargetReducer,
   topProductsSell: topProductsReducer,
-  profitAndRevenue: profitAndRevenueReducer
+  profitAndRevenue: profitAndRevenueReducer,
+  salesTrendOverTime: salesTrendOverTimeReducer,
 });
 
 export default rootReducer;

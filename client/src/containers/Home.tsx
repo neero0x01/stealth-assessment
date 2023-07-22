@@ -11,6 +11,7 @@ import { SalesVSTarget } from '../sales/sales-vs-target/SalesVSTarget';
 import { TopProductSell } from '../sales/top-selling-products/TopProductSell';
 import { ProfitAndRevenue } from '../sales/profit-and-revenue/ProfitAndRevenue';
 import { SalesConversionRate } from '../sales/sales-conversion-rate/SalesConversionRate';
+import SalesTrendOverTime from "../sales/sales-trend-over-time/SalesTrendOverTime";
 
 export const Home = () => {
   return (
@@ -76,7 +77,7 @@ export const Home = () => {
           <Grid item xs={8}>
             <Paper>
               <h2>Sales trend over time:</h2>
-              <ProfitAndRevenue />
+              <SalesTrendOverTime />
             </Paper>
           </Grid>
         </Grid>

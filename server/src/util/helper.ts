@@ -99,7 +99,7 @@ exports.generateFakeOrders = (
       productID: getRandomElementFromArray(productIDs),
       userID: getRandomElementFromArray(userIDs),
       quantity: faker.number.int({ min: 1, max: 20 }),
-      purchaseDate: faker.date.recent({ days: 50 }),
+      purchaseDate: faker.date.between({ from: "2022-05-01", to: "2023-05-02" }),
     });
   }
   return orderData;
