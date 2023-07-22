@@ -28,7 +28,7 @@ exports.addFakeProducts = async (req: any, res: any) => {
 
 exports.addFakeUsers = async (req: any, res: any) => {
   try {
-    const userData = await generateFakeUsers(10);
+    const userData = await generateFakeUsers(700);
     const dataAdded = await User.insertMany(userData);
 
     if (!dataAdded)
