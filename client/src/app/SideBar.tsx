@@ -26,7 +26,10 @@ const SideBar = () => {
                         />
                     }
                 >
-                    <h5>Stealth</h5>
+                    <div id="company" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <h5>Stealth</h5>{" "}
+                        <img src="./logo.jpeg" width={25} height={25} />
+                    </div>
                 </MenuItem>
                 <MenuItem component={<Link to="/" /> } icon={<GridViewRoundedIcon />}> Dashboard </MenuItem>
                 <SubMenu open={true} label="Charts" icon={<BarChartRoundedIcon />}>

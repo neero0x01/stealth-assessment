@@ -37,7 +37,7 @@ export const GenderChart = (props: any) => {
     return (
         <Container>
             <Paper>
-                <h2>Sales By Region</h2>
+                <h2>Gender Chart</h2>
                 <div style={{height: '500px'}}>
                     <Doughnut data={doughnutData}/>
                 </div>
