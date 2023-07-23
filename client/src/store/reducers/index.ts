@@ -8,6 +8,7 @@ import salesVSTargetReducer from './salesVSTarget.reducer';
 import topProductsReducer from './topProducts.reducer';
 import profitAndRevenueReducer from './profitAndRevenue.reducer';
 import salesTrendOverTimeReducer from "./salesTrendOverTime.reducer";
+import conversionRateReducer from "./conversionRate.reducer";
 
 const rootReducer = combineReducers({
   salesByRegion: salesByRegionReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   topProductsSell: topProductsReducer,
   profitAndRevenue: profitAndRevenueReducer,
   salesTrendOverTime: salesTrendOverTimeReducer,
+  conversionRate: conversionRateReducer
 });
 
 export default rootReducer;
