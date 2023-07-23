@@ -10,7 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const GenderChart = (props: any) => {
     const dispatch = useAppDispatch();
-    const {data} = useAppSelector((state: any) => state.genderChart);
+    const {data} = useAppSelector((state) => state.genderChart);
     const doughnutData = {
         labels: Object.keys(data),
         datasets: [
