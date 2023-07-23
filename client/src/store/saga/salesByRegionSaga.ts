@@ -1,4 +1,3 @@
-import { get } from "http";
 import { put, takeEvery } from "redux-saga/effects";
 import { getSalesByRegion } from '../reducers/salesByRegion.reducer'
 

@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { getSalesByCategory } from '../../store/reducers/salesByCategory.reducer';
 import {useAppDispatch, useAppSelector} from "../../store/hooks";
+import {Container} from "@mui/material";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const SalesByCategory = () => {
@@ -10,7 +11,7 @@ export const SalesByCategory = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch<any>(getSalesByCategory());
-  }, []);
+  }, [dispatch]);
 
   const pieData = {
     labels: data && data.map((e: any) => e.categoryName),
@@ -31,14 +32,17 @@ export const SalesByCategory = () => {
     ],
   };
   return (
-    <div>
-      {data && pieData && (
-        <Pie
-          height={'500px'}
-          options={{ maintainAspectRatio: false }}
-          data={pieData}
-        />
-      )}
-    </div>
+      <Container>
+        <h2>Sales By Category</h2>
+        <div>
+          {data && pieData && (
+              <Pie
+                  height={'500px'}
+                  options={{ maintainAspectRatio: false }}
+                  data={pieData}
+              />
+          )}
+        </div>
+      </Container>
   );
 };

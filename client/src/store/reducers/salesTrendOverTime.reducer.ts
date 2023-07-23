@@ -23,7 +23,6 @@ export const getSalesTrendOverTimeData = createAsyncThunk(
         }
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/graphql`, options);
         const text = await response.json();
-        console.log(text);
         return text.data.getSalesTrendOverTime
     }
 )

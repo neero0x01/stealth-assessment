@@ -1,87 +1,57 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { SalesByRegion } from '../sales/sales-by-region/SalesByRegion';
-import { SalesByCategory } from '../sales/sales-by-category/SalesByCategory';
-import { AgeCount } from '../sales/customer-demographics/AgeCount';
-import { OccupationData } from '../sales/customer-demographics/OccupationData';
-import { GenderChart } from '../sales/customer-demographics/GenderChart';
-import { SalesVSTarget } from '../sales/sales-vs-target/SalesVSTarget';
-import { TopProductSell } from '../sales/top-selling-products/TopProductSell';
-import { ProfitAndRevenue } from '../sales/profit-and-revenue/ProfitAndRevenue';
-import { SalesConversionRate } from '../sales/sales-conversion-rate/SalesConversionRate';
-import SalesTrendOverTime from "../sales/sales-trend-over-time/SalesTrendOverTime";
+import * as React from "react"
+import {Box, Typography} from "@mui/material"
 
-export const Home = () => {
-  return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
-            <Paper>
-              <h2>Sales By Region</h2>
-              <SalesByRegion />
-            </Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>
-              <h2>Sales By Category</h2>
-              <SalesByCategory />
-            </Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>
-              <h2>Age Count</h2>
-              <AgeCount />
-            </Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>
-              <h2>Occupation Data</h2>
-              <OccupationData />
-            </Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>
-              <h2>Gender Data</h2>
-              <GenderChart />
-            </Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>
-              <h2>Sales VS Target Data</h2>
-              <SalesVSTarget />
-            </Paper>
-          </Grid>
-          <Grid item xs={8}>
-            <Paper>
-              <h2>Top 10 Products</h2>
-              <TopProductSell />
-            </Paper>
-          </Grid>
-          <Grid item xs={8}>
-            <Paper>
-              <h2>Profit And Revenue</h2>
-              <ProfitAndRevenue />
-            </Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>
-              <h2>
-                Sales Conversion Rate:(%) <sub>(static)</sub>
-              </h2>
-              <SalesConversionRate />
-            </Paper>
-          </Grid>
-          <Grid item xs={8}>
-            <Paper>
-              <h2>Sales trend over time:</h2>
-              <SalesTrendOverTime />
-            </Paper>
-          </Grid>
-        </Grid>
-      </Box>
-    </div>
-  );
-};
+export function Home({
+                         decorative = "Coding Challenge",
+                         title = "The Stealth Startup",
+                         subtitle = "We are a stealth startup.",
+                     }: {
+    decorative?: React.ReactNode
+    title?: React.ReactNode
+    subtitle?: React.ReactNode
+}) {
+    return (
+        <Box
+            sx={{
+                flex: 1,
+                height: "80vh",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                gap: 2,
+                my: 6,
+                textAlign: "center",
+            }}
+        >
+            <Box
+                sx={{
+                    color: "primary.500",
+                    fontWeight: 600,
+                    fontSize: "sm",
+                    textTransform: "uppercase",
+                    letterSpacing: 0.5,
+                }}
+            >
+                {decorative}
+            </Box>
+            <Typography
+                variant="h1"
+                sx={{
+                    fontSize: {xs: "3xl", sm: "4xl", md: "5xl"},
+                    fontWeight: 800,
+                }}
+            >
+                {title}
+            </Typography>
+            <Typography
+                sx={{
+                    fontSize: "lg",
+                    color: "gray.500",
+                    maxWidth: "54ch",
+                }}
+            >
+                {subtitle}
+            </Typography>
+        </Box>
+    )
+}

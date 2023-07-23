@@ -88,27 +88,15 @@ const resolvers = {
   Query: {
 
     getSalesTrendOverTime: async (_: any) => {
-      const frequencyLookUp:any = {};
       const allOrders = await order.find();
-      //
-      // for (const order of allOrders) {
-      //   if(frequencyLookUp[order.purchaseDate]){
-      //     frequencyLookUp[order.purchaseDate] += 1;
-      //   } else {
-      //       frequencyLookUp[order.purchaseDate] = 1;
-      //   }
-      // }
-      //
-      // console.log(frequencyLookUp);
 
-      const results: any = [];
-
-      const modAllOrders = allOrders.map((order: { purchaseDate: string; }, id: number) => ({ purchaseDate: order.purchaseDate, id, month: new Date(order.purchaseDate).getMonth(), day: new Date(order.purchaseDate).getDate(), year: new Date(order.purchaseDate).getFullYear() }))
-      // allOrders.forEach((element: any) => {
-      //   results.push({ month: new Date(element.purchaseDate).getMonth(), day: new Date(element.purchaseDate).getDate(), year: new Date(element.purchaseDate).getFullYear() })
-      // });
-      console.log(modAllOrders);
-      return modAllOrders;
+      return allOrders.map((order: { purchaseDate: string; }, id: number) => ({
+        purchaseDate: order.purchaseDate,
+        id,
+        month: new Date(order.purchaseDate).getMonth(),
+        day: new Date(order.purchaseDate).getDate(),
+        year: new Date(order.purchaseDate).getFullYear()
+      }));
     },
 
     // getSalesConversionRate: async (_: any) => {
