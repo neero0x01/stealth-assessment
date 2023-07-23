@@ -41,7 +41,9 @@ async function bootstrapApolloServer() {
     );
 
     await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
-    console.log(`🚀 Server ready at http://localhost:5000/`);
+    console.log(`🚀 Server ready at http://localhost:${port}/`);
+    console.log(`GraphQL link: http://localhost:5000/graphql`);
+
 }
 
 bootstrapApolloServer();

@@ -99,9 +99,12 @@ const resolvers = {
       }));
     },
 
-    // getSalesConversionRate: async (_: any) => {
-    //
-    // }
+    getSalesConversionRate: async (_: any) => {
+        const allOrders = await order.find();
+        const allUsers = await user.find();
+        const conversionRate = (allOrders.length / allUsers.length) * 100
+        return { conversionRate }
+    },
 
     getAgeCountData: async (_: any) => {
       const data = await user.find();
